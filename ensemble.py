@@ -42,13 +42,13 @@ class Model() :
             weight = path+model_name
             checkpoint = torch.load(weight)
             #model.load_state_dict(checkpoint['model_state_dict'],strict=True)
-            if isinstance(model, nn.DataParallel): # GPU 병렬사용 적용 
+            if isinstance(model, nn.DataParallel):
                 model.load_state_dict(checkpoint['model_state_dict'],strict=True) 
-            else: # GPU 병렬사용을 안할 경우 
+            else:  
                 state_dict = checkpoint['model_state_dict']
                 new_state_dict = OrderedDict() 
                 for k, v in state_dict.items(): 
-                    name = k[7:] # remove `module.` ## module 키 제거 
+                    name = k[7:]
                     new_state_dict[name] = v 
                 model.load_state_dict(new_state_dict)
             model.to(self.device)
