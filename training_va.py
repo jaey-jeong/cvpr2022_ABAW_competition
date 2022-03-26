@@ -196,7 +196,7 @@ def run_training():
         torch.backends.cudnn.benchmark = True
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.enabled = True
-    model_name = "Pretrained_"+str(args.pretrained)+"_VA_"+str(args.aug)+"_LR_"+str(args.lr)+"_FREEZE_"+str(args.freeze)+"_OPT_"+str(args.opt)+"_schedule_"+str(args.sch)+"_num_head_"+str(args.num_head)    
+    model_name = "VA model"    
     
     
     model = DAN_ab(args.pretrained, num_head=4, num_class=2)
@@ -231,15 +231,7 @@ def run_training():
         elif args.freeze == "0" :
              if ct_ < ct-3 :
                 param.requires_grad = False
-    # for param in model.parameters():
-    #     #print
-    #     #print(ct)
-    #     ct_+=1
-    #     if ct_ < 17 : #50 frezee
-    #         #print("false")
-    #         param.requires_grad = False
-    #     else:
-    #         break
+    
     print("freeze Layer Num : ", ct_)
     model.to(device)
     
