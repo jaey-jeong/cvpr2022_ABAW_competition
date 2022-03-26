@@ -3,7 +3,7 @@
 
 This git repo is the code of IXLab at Seoul National University of Science and Technology from South Korea
 
-We conducted two tasks, Expr and VA challenges. 
+We conducted two tasks, EXPR and VA challenges. 
 
 
 # Reference
