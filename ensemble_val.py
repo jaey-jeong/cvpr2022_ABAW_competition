@@ -45,7 +45,7 @@ class Model() :
                 state_dict = checkpoint['model_state_dict']
                 new_state_dict = OrderedDict() 
                 for k, v in state_dict.items(): 
-                    name = k[7:] # remove `module.` ## module 키 제거 
+                    name = k[7:]
                     new_state_dict[name] = v 
                 model.load_state_dict(new_state_dict)
                 print("bagging")
@@ -77,10 +77,10 @@ class Model() :
             for model in self.all_models:
                 out, _, _ = model(img)
                 if(outs == None):
-                    #print("들어왔니?")
+                    
                     outs=out
                 else:
-                    #print("너두?")
+                    
                     outs+=out
 
             _, pred = torch.max(outs,1)
