@@ -165,7 +165,7 @@ def run_training():
         torch.backends.cudnn.benchmark = True
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.enabled = True
-    model_name = "AIHUB_STRONG_PRETRAINED"+args.pretrained+"_SCRATCH_AUG_"+str(args.aug)+"_LR_"+str(args.lr)+"_FREEZE_"+str(args.freeze)+"_OPT_"+str(args.opt)+"_schedule_"+str(args.sch)+"_num_head_"+str(args.num_head)    
+    model_name = "model"    
     
     
     model = Expr(args.pretrained, num_head=4, num_class=8)
